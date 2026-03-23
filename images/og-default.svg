@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <rect x="60" y="520" width="120" height="3" fill="#0ea5e9" rx="1.5"/>
+  <text x="60" y="320" font-family="'Syne', sans-serif" font-size="72" font-weight="800" fill="#f0f0f0">EIGHT<tspan fill="#0ea5e9">38</tspan></text>
+  <text x="60" y="380" font-family="sans-serif" font-size="28" fill="#a0a0a0">Automation Solutions</text>
+</svg>
