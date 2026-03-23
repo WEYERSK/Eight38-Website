@@ -1,0 +1,42 @@
+# Eight38
+
+> AI automation solutions for businesses. We build custom workflow automation using n8n and AI, so teams can stop doing repetitive work and focus on what matters.
+
+## About
+
+Eight38 is a business automation agency based in Cape Town, South Africa, serving clients globally. We design and implement custom automation solutions for small and medium businesses using no-code and low-code platforms.
+
+## Services
+
+- [Lead Response System](/services.html): AI-powered lead qualification and follow-up in under 2 minutes
+- [Client Reporting Autopilot](/services.html): Automated data pulls, AI insights, and branded report delivery
+- [Content Repurposing Engine](/services.html): Turn one piece of content into 10+ across platforms
+- [Custom Workflow Automation](/services.html): Tailored automation for any business process
+
+## Key Details
+
+- Location: Cape Town, South Africa (remote services globally)
+- Speciality: n8n, Make.com, Zapier, AI-powered automation
+- Target clients: SMBs with 5-100 employees
+- Pricing: R15,000-R500,000+ depending on complexity
+- Contact: hello@eight38.com
+
+## Free Resources
+
+- [Automation Readiness Checklist](/resources/automation-readiness-checklist.html): 15-point assessment to evaluate if your business is ready for automation
+- [Platform Comparison Guide](/resources/choosing-automation-platform.html): n8n vs Make.com vs Zapier side-by-side
+- [Workflow Automation Playbook](/resources/workflow-automation-playbook.html): Step-by-step implementation guide
+
+## Blog
+
+- [5 Business Processes to Automate First](/blog/5-business-processes-to-automate-first.html)
+- [How Much Does Automation Cost in South Africa?](/blog/automation-cost-south-africa.html)
+- [What Is n8n?](/blog/what-is-n8n.html)
+- [n8n vs Make.com](/blog/n8n-vs-make-com.html)
+- [AI-Powered Lead Response](/blog/ai-powered-lead-response.html)
+- [Client Reporting Automation](/blog/client-reporting-automation.html)
+- [Marketing Agency Automation](/blog/marketing-agency-automation.html)
+- [How to Choose an Automation Partner](/blog/how-to-choose-automation-partner.html)
+- [DIY vs Hiring an Expert](/blog/diy-vs-automation-expert.html)
+- [Automation Tools 101](/blog/automation-tools-101.html)
+- [The No-Code, Low-Code Revolution](/blog/no-code-low-code-revolution.html)
