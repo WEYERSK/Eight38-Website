@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eight38.com/sitemap.xml
+
+# Disallow admin/internal paths
+Disallow: /downloads/
