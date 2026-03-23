@@ -156,6 +156,16 @@ async function handleFormSubmit(e) {
   if (form.dataset.submitting === 'true') return;
   form.dataset.submitting = 'true';
 
+  // Honeypot check — bots fill hidden fields, humans don't
+  const honeypot = form.querySelector('.form-hp input');
+  if (honeypot && honeypot.value) {
+    // Fake success to not alert the bot
+    showFormMessage(successEl, successEl?.textContent || 'Thanks! We\'ll be in touch shortly.');
+    form.reset();
+    form.dataset.submitting = 'false';
+    return;
+  }
+
   // Client-side validation
   const email = form.querySelector('[type="email"]');
   if (email && !isValidEmail(email.value)) {
