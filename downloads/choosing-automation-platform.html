@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N8N vs Make.com vs Zapier: The Complete Comparison Guide | Eight38</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            background: #f0f0f0;
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.08), 0 4px 30px rgba(0,0,0,0.04);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        /* Cover */
+        .cover {
+            background: linear-gradient(135deg, #0c2d48 0%, #0a1f33 100%);
+            color: #ffffff;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.08);
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.06);
+        }
+        .cover .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo .accent { color: #0ea5e9; }
+        .cover h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .cover .subtitle {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .cover .tagline {
+            font-size: 14px;
+            opacity: 0.6;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content { padding: 50px 60px; }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0a0a0a;
+            margin: 45px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0ea5e9;
+        }
+        h2:first-child { margin-top: 0; }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0a0a0a;
+            margin: 30px 0 12px;
+        }
+
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #0a0a0a;
+            margin: 18px 0 8px;
+        }
+
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 10px 0 14px 24px; }
+        li { margin-bottom: 6px; }
+        strong { font-weight: 600; }
+
+        /* Platform cards */
+        .platform-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 24px 0;
+            position: relative;
+        }
+        .platform-card.n8n { border-left: 4px solid #ff6d5a; }
+        .platform-card.make { border-left: 4px solid #6c2eb9; }
+        .platform-card.zapier { border-left: 4px solid #ff4a00; }
+
+        .platform-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+        .platform-tagline {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .stat-box {
+            background: #f8fafb;
+            border-radius: 6px;
+            padding: 12px 14px;
+            text-align: center;
+        }
+        .stat-value {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #0ea5e9;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .comparison-table th {
+            background: #0c2d48;
+            color: #ffffff;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .comparison-table th:first-child { border-radius: 6px 0 0 0; }
+        .comparison-table th:last-child { border-radius: 0 6px 0 0; }
+        .comparison-table td {
+            padding: 11px 14px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        .comparison-table tr:nth-child(even) td { background: #f8fafb; }
+        .comparison-table td:first-child { font-weight: 600; }
+
+        /* Decision boxes */
+        .decision-box {
+            border-radius: 8px;
+            padding: 22px 26px;
+            margin: 16px 0;
+        }
+        .decision-box.n8n { background: #fff5f4; border-left: 4px solid #ff6d5a; }
+        .decision-box.make { background: #f8f4ff; border-left: 4px solid #6c2eb9; }
+        .decision-box.zapier { background: #fff8f5; border-left: 4px solid #ff4a00; }
+        .decision-box h4 { margin-top: 0; }
+
+        /* Cost table */
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .cost-table th {
+            background: #0c2d48;
+            color: #ffffff;
+            padding: 10px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .cost-table th:first-child { text-align: left; }
+        .cost-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        .cost-table td:first-child { text-align: left; font-weight: 600; }
+        .cost-table tr:nth-child(even) td { background: #f8fafb; }
+        .cost-table .best {
+            color: #0ea5e9;
+            font-weight: 700;
+        }
+        .cost-table .section-header td {
+            background: #f0f7fa;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #0ea5e9;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: #f8fafb;
+            border-left: 4px solid #0ea5e9;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box h3 { margin-top: 0; color: #0ea5e9; }
+
+        .divider { height: 1px; background: #e5e7eb; margin: 30px 0; }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0c2d48 0%, #0a1f33 100%);
+            color: #ffffff;
+            padding: 40px 60px;
+            text-align: center;
+        }
+        .cta-section h2 { color: #ffffff; border-bottom: none; margin-top: 0; }
+        .cta-section p { opacity: 0.9; }
+        .cta-button {
+            display: inline-block;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 14px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 8px;
+        }
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            color: #999;
+            padding: 30px 60px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer .logo-small {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        .footer .logo-small .accent { color: #0ea5e9; }
+        .footer-links { text-align: right; }
+        .footer-links a { color: #0ea5e9; text-decoration: none; }
+
+        /* Print */
+        @media print {
+            body { background: #ffffff; font-size: 12pt; }
+            .page { box-shadow: none; margin: 0; max-width: none; }
+            .cover { padding: 50px 40px; }
+            .content { padding: 30px 40px; }
+            .cta-section, .cta-button { display: none; }
+            .platform-card, .decision-box { break-inside: avoid; }
+            .comparison-table, .cost-table { font-size: 10pt; }
+            .footer { background: #ffffff; color: #666; padding: 20px 40px; }
+            a { color: #1a1a1a; text-decoration: none; }
+        }
+
+        @media (max-width: 640px) {
+            .cover { padding: 50px 30px; }
+            .cover h1 { font-size: 24px; }
+            .content { padding: 30px 24px; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .comparison-table, .cost-table { font-size: 12px; }
+            .cta-section { padding: 30px 24px; }
+            .footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+            .footer-links { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- Cover -->
+    <div class="cover">
+        <div class="logo">EIGHT<span class="accent">38</span></div>
+        <h1>N8N vs Make.com vs Zapier</h1>
+        <p class="subtitle">The Complete Comparison Guide for South African SMBs</p>
+        <p class="subtitle">A Free Guide from Eight38</p>
+        <p class="tagline">Cape Town's Business Automation Specialists</p>
+    </div>
+
+    <div class="content">
+        <h2>Introduction: Why Choosing the Right Platform Matters</h2>
+
+        <p>Choosing an automation platform is one of the most consequential technology decisions your business will make this year. Pick the right one, and you'll build a foundation that scales with you for years. Pick the wrong one, and you'll face painful migration, unexpected costs, or outgrow the tool within months.</p>
+
+        <p>The three major platforms &mdash; n8n, Make.com (formerly Integromat), and Zapier &mdash; each serve different needs. There's no single "best" platform; there's only the best platform <em>for your specific situation</em>.</p>
+
+        <p>This guide gives you an honest, side-by-side comparison based on our hands-on experience building automations across all three. We'll cover features, pricing, capabilities, and real-world cost projections so you can make an informed decision &mdash; whether you work with us or build your own.</p>
+
+        <div class="divider"></div>
+
+        <!-- n8n -->
+        <h2>Platform Overviews</h2>
+
+        <div class="platform-card n8n">
+            <div class="platform-name">n8n</div>
+            <div class="platform-tagline">The open-source powerhouse for serious automation</div>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">400+</div>
+                    <div class="stat-label">Integrations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Free</div>
+                    <div class="stat-label">Self-hosted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Full</div>
+                    <div class="stat-label">AI Support</div>
+                </div>
+            </div>
+            <p>n8n (pronounced "nodemation") is an open-source workflow automation platform that you can self-host on your own server or use via their cloud offering. It stands apart from the competition for one critical reason: <strong>you own your data and your workflows entirely</strong>.</p>
+            <h4>Key Strengths</h4>
+            <ul>
+                <li><strong>Self-hosting option:</strong> Run n8n on your own server for complete data sovereignty. Your automation data never leaves your infrastructure &mdash; critical for businesses handling sensitive customer or financial information.</li>
+                <li><strong>Visual workflow builder:</strong> Drag-and-drop interface with a node-based design that makes complex workflows intuitive to build and understand.</li>
+                <li><strong>AI-native nodes:</strong> Built-in support for OpenAI, Claude, and other AI models. Build AI-powered automations directly &mdash; no workarounds needed.</li>
+                <li><strong>Custom code support:</strong> Write JavaScript or Python directly within workflows when pre-built nodes don't cover your use case.</li>
+                <li><strong>No execution limits on self-hosted:</strong> Run as many workflows and executions as your server can handle. No per-task pricing that penalises growth.</li>
+                <li><strong>Active community:</strong> Large open-source community contributing new integrations and sharing workflow templates.</li>
+            </ul>
+            <h4>Considerations</h4>
+            <ul>
+                <li>Steeper learning curve than Zapier (but more capable once learned)</li>
+                <li>Self-hosting requires basic server management knowledge (or a managed provider)</li>
+                <li>Fewer pre-built integrations than Zapier (though the most important ones are covered)</li>
+            </ul>
+            <h4>Best For</h4>
+            <p>Businesses that need powerful, flexible automation without per-execution costs. Ideal for data-sensitive industries, high-volume operations, and anyone who wants full control over their automation infrastructure.</p>
+        </div>
+
+        <div class="platform-card make">
+            <div class="platform-name">Make.com</div>
+            <div class="platform-tagline">Visual automation with strong value for money</div>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">1,500+</div>
+                    <div class="stat-label">Integrations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Cloud</div>
+                    <div class="stat-label">Hosted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Good</div>
+                    <div class="stat-label">AI Support</div>
+                </div>
+            </div>
+            <p>Make.com (formerly Integromat) occupies the sweet spot between Zapier's simplicity and n8n's power. Its visual "scenario" builder is arguably the most intuitive of the three, and its pricing model is significantly more affordable than Zapier at scale.</p>
+            <h4>Key Strengths</h4>
+            <ul>
+                <li><strong>Beautiful visual builder:</strong> Scenarios are easy to understand at a glance. Branching, filtering, and error handling are built into the visual interface.</li>
+                <li><strong>Strong integration library:</strong> 1,500+ integrations covering most popular business tools, with new ones added regularly.</li>
+                <li><strong>Operations-based pricing:</strong> You pay for "operations" (individual steps), which is more granular and often cheaper than Zapier's task-based model.</li>
+                <li><strong>Data manipulation tools:</strong> Built-in functions for transforming data, parsing text, working with dates, and handling arrays &mdash; without needing custom code.</li>
+                <li><strong>Scheduling flexibility:</strong> Run scenarios every minute, on specific days, or triggered by events. More scheduling options than Zapier's free tier.</li>
+            </ul>
+            <h4>Considerations</h4>
+            <ul>
+                <li>Cloud-only: no self-hosting option (your data is on Make's servers)</li>
+                <li>Operations counting can be confusing initially</li>
+                <li>AI capabilities are present but not as deeply integrated as n8n's native AI nodes</li>
+                <li>Custom code support is limited compared to n8n</li>
+            </ul>
+            <h4>Best For</h4>
+            <p>Small to mid-sized businesses that want powerful visual automation without the overhead of self-hosting. Great for marketing agencies, e-commerce operators, and service businesses with moderate complexity needs.</p>
+        </div>
+
+        <div class="platform-card zapier">
+            <div class="platform-name">Zapier</div>
+            <div class="platform-tagline">The household name with the biggest app library</div>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value">6,000+</div>
+                    <div class="stat-label">Integrations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Cloud</div>
+                    <div class="stat-label">Hosted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">Basic</div>
+                    <div class="stat-label">AI Support</div>
+                </div>
+            </div>
+            <p>Zapier is the most recognised name in automation, and for good reason: it's the simplest to get started with and supports more apps than any competitor. If you've ever connected two apps together, there's a decent chance Zapier had a pre-built template for it.</p>
+            <h4>Key Strengths</h4>
+            <ul>
+                <li><strong>Largest integration library:</strong> 6,000+ apps, including niche and industry-specific tools that other platforms don't support.</li>
+                <li><strong>Easiest learning curve:</strong> The "trigger &rarr; action" model is straightforward enough that non-technical team members can build simple automations.</li>
+                <li><strong>Pre-built templates:</strong> Thousands of ready-made "Zaps" that you can activate in minutes.</li>
+                <li><strong>Reliable infrastructure:</strong> As a mature, well-funded platform, Zapier offers strong uptime and enterprise-grade reliability.</li>
+                <li><strong>AI actions:</strong> Built-in AI actions for text processing, summarisation, and classification.</li>
+            </ul>
+            <h4>Considerations</h4>
+            <ul>
+                <li><strong>Expensive at scale:</strong> Task-based pricing means costs rise sharply as volume increases. A busy workflow can cost hundreds of dollars per month.</li>
+                <li>Cloud-only: no self-hosting option</li>
+                <li>Limited branching and complex logic (improving, but still behind n8n and Make)</li>
+                <li>Custom code support is minimal</li>
+                <li>Less flexible error handling than n8n or Make</li>
+            </ul>
+            <h4>Best For</h4>
+            <p>Businesses that need simple, reliable automations across a wide range of apps. Ideal for teams without technical resources who want quick wins, and for connecting niche tools that other platforms don't support.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Feature Comparison Table -->
+        <h2>Feature-by-Feature Comparison</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Feature</th>
+                    <th style="width: 25%;">n8n</th>
+                    <th style="width: 25%;">Make.com</th>
+                    <th style="width: 25%;">Zapier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pricing Model</td>
+                    <td>Free (self-hosted) or from &euro;20/mo (cloud)</td>
+                    <td>Free tier, then from $9/mo</td>
+                    <td>Free tier, then from $19.99/mo</td>
+                </tr>
+                <tr>
+                    <td>Self-Hosting</td>
+                    <td>Yes (full control)</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Integrations</td>
+                    <td>400+ (growing)</td>
+                    <td>1,500+</td>
+                    <td>6,000+</td>
+                </tr>
+                <tr>
+                    <td>AI Capabilities</td>
+                    <td>Native AI nodes (OpenAI, Claude, Ollama, etc.)</td>
+                    <td>AI modules available</td>
+                    <td>Built-in AI actions</td>
+                </tr>
+                <tr>
+                    <td>Learning Curve</td>
+                    <td>Moderate</td>
+                    <td>Low&ndash;Moderate</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>Data Privacy</td>
+                    <td>Full (self-hosted keeps data on your server)</td>
+                    <td>Cloud &mdash; data on Make's servers</td>
+                    <td>Cloud &mdash; data on Zapier's servers</td>
+                </tr>
+                <tr>
+                    <td>Error Handling</td>
+                    <td>Advanced (custom retry, fallback paths)</td>
+                    <td>Good (visual error routes)</td>
+                    <td>Basic (retry &amp; auto-replay)</td>
+                </tr>
+                <tr>
+                    <td>Community</td>
+                    <td>Large open-source community</td>
+                    <td>Active forum &amp; templates</td>
+                    <td>Largest user base &amp; resources</td>
+                </tr>
+                <tr>
+                    <td>Custom Code</td>
+                    <td>Full (JavaScript &amp; Python)</td>
+                    <td>Limited (JavaScript in some modules)</td>
+                    <td>Minimal (Code by Zapier, limited)</td>
+                </tr>
+                <tr>
+                    <td>Execution Limits</td>
+                    <td>Unlimited (self-hosted)</td>
+                    <td>Based on operations &amp; plan</td>
+                    <td>Based on tasks &amp; plan</td>
+                </tr>
+                <tr>
+                    <td>Webhook Support</td>
+                    <td>Full (incoming &amp; outgoing)</td>
+                    <td>Full (incoming &amp; outgoing)</td>
+                    <td>Available (paid plans)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="divider"></div>
+
+        <!-- Decision Matrix -->
+        <h2>Decision Matrix: Which Platform Is Right for You?</h2>
+
+        <div class="decision-box n8n">
+            <h4>Choose n8n if...</h4>
+            <ul>
+                <li>Data privacy is critical (healthcare, legal, financial services)</li>
+                <li>You need to run high-volume automations without per-task costs</li>
+                <li>You want full control over your automation infrastructure</li>
+                <li>You're building AI-powered workflows (AI agents, document processing)</li>
+                <li>You have technical resources or a partner to manage hosting</li>
+                <li>You're planning complex, multi-step workflows with custom logic</li>
+                <li>You want to avoid vendor lock-in</li>
+            </ul>
+        </div>
+
+        <div class="decision-box make">
+            <h4>Choose Make.com if...</h4>
+            <ul>
+                <li>You want powerful automation without managing servers</li>
+                <li>Visual workflow design is important to your team</li>
+                <li>You need more integrations than n8n but better pricing than Zapier</li>
+                <li>You're running moderate-volume automations (hundreds to thousands per month)</li>
+                <li>Your team has some technical aptitude but isn't developer-heavy</li>
+                <li>You want strong data transformation tools without writing code</li>
+            </ul>
+        </div>
+
+        <div class="decision-box zapier">
+            <h4>Choose Zapier if...</h4>
+            <ul>
+                <li>Simplicity is your top priority</li>
+                <li>You need to connect niche or industry-specific apps</li>
+                <li>Your automations are simple (trigger &rarr; action, few steps)</li>
+                <li>Non-technical team members will build and manage automations</li>
+                <li>You want pre-built templates to get started in minutes</li>
+                <li>Volume is low (under 750 tasks/month on free tier)</li>
+                <li>Speed of setup matters more than long-term cost</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Cost Calculator -->
+        <h2>Total Cost of Ownership: Year 1 and Year 3</h2>
+
+        <p>Price comparisons at the plan level can be misleading. What matters is the <strong>total cost of ownership</strong> &mdash; including hosting, execution costs, and what happens as your usage grows. Here's how the three platforms compare across three business sizes.</p>
+
+        <table class="cost-table">
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>n8n (Self-Hosted)</th>
+                    <th>Make.com</th>
+                    <th>Zapier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="section-header">
+                    <td colspan="4">Small Business: ~100 tasks/month</td>
+                </tr>
+                <tr>
+                    <td>Year 1 Cost</td>
+                    <td class="best">R2,160 (hosting only)</td>
+                    <td>R0 (free tier)</td>
+                    <td>R0 (free tier)</td>
+                </tr>
+                <tr>
+                    <td>Year 3 Total</td>
+                    <td>R6,480</td>
+                    <td class="best">R0</td>
+                    <td class="best">R0</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>~$12/mo VPS hosting</td>
+                    <td>Free tier covers this easily</td>
+                    <td>Free tier covers this easily</td>
+                </tr>
+                <tr class="section-header">
+                    <td colspan="4">Medium Business: ~5,000 tasks/month</td>
+                </tr>
+                <tr>
+                    <td>Year 1 Cost</td>
+                    <td class="best">R4,320 (hosting only)</td>
+                    <td>R10,800 (~$50/mo plan)</td>
+                    <td>R43,200 (~$200/mo plan)</td>
+                </tr>
+                <tr>
+                    <td>Year 3 Total</td>
+                    <td class="best">R12,960</td>
+                    <td>R32,400</td>
+                    <td>R129,600</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>~$24/mo VPS, unlimited executions</td>
+                    <td>Pro plan, ~10K operations/mo</td>
+                    <td>Professional plan, 5K tasks/mo</td>
+                </tr>
+                <tr class="section-header">
+                    <td colspan="4">Large Business: ~50,000 tasks/month</td>
+                </tr>
+                <tr>
+                    <td>Year 1 Cost</td>
+                    <td class="best">R8,640 (hosting only)</td>
+                    <td>R64,800 (~$300/mo plan)</td>
+                    <td>R216,000+ (~$1,000+/mo)</td>
+                </tr>
+                <tr>
+                    <td>Year 3 Total</td>
+                    <td class="best">R25,920</td>
+                    <td>R194,400</td>
+                    <td>R648,000+</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>~$48/mo VPS, unlimited executions</td>
+                    <td>Teams plan, custom operations</td>
+                    <td>Company plan, volume pricing</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><em>Costs shown in ZAR at approximately R18/USD. Actual costs will vary based on exchange rates and specific plan features selected. n8n self-hosted costs include VPS hosting only; add implementation costs for initial setup.</em></p>
+
+        <div class="highlight-box">
+            <h3>The Cost Curve Matters</h3>
+            <p>Notice how costs diverge dramatically at scale. For a medium business running 5,000 tasks per month, Zapier costs <strong>10x more than n8n</strong> over three years. For a large business, the gap widens to <strong>25x</strong>. This is why platform choice matters &mdash; it's not just about today's needs; it's about where your business will be in 2&ndash;3 years.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Honest Recommendation -->
+        <h2>Our Honest Recommendation</h2>
+
+        <p>At Eight38, we primarily use <strong>n8n</strong> for serious automation work. Here's why:</p>
+
+        <ul>
+            <li><strong>Data sovereignty:</strong> Many of our clients handle sensitive customer, financial, or health data. Self-hosted n8n keeps that data on infrastructure we control &mdash; critical for POPIA compliance and client trust.</li>
+            <li><strong>Cost predictability:</strong> With self-hosting, our clients' automation costs don't spike as their business grows. The server cost stays roughly the same whether you run 100 or 100,000 workflows per month.</li>
+            <li><strong>AI-native capabilities:</strong> n8n's AI nodes let us build intelligent automation &mdash; document processing with OCR and AI, smart email routing, content generation &mdash; natively within workflows.</li>
+            <li><strong>Flexibility:</strong> When a pre-built integration doesn't exist, we can write custom code within n8n to connect any system with an API. No waiting for the platform to add support.</li>
+        </ul>
+
+        <p><strong>But we don't recommend n8n for everyone.</strong></p>
+
+        <p>If your team wants to build simple automations independently without technical support, <strong>Zapier</strong> is often the right choice. Its simplicity and massive app library mean your marketing manager or operations coordinator can connect tools without calling us.</p>
+
+        <p>If you need a middle ground &mdash; more power than Zapier but without managing servers &mdash; <strong>Make.com</strong> is excellent value. We've built plenty of client solutions on Make and it handles moderate complexity well.</p>
+
+        <p>Our approach is simple: <strong>we recommend the right tool for each client's situation</strong>, not the tool we prefer. During our free assessment, we'll evaluate your specific needs, volume, technical resources, and budget to recommend the platform that genuinely fits &mdash; even if that's a tool we don't primarily use.</p>
+
+        <div class="divider"></div>
+
+        <!-- Quick Reference -->
+        <h2>Quick Decision Guide</h2>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Your Situation</th>
+                    <th>Our Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Simple automations, non-technical team, low volume</td>
+                    <td><strong>Zapier</strong></td>
+                </tr>
+                <tr>
+                    <td>Growing business, moderate complexity, budget-conscious</td>
+                    <td><strong>Make.com</strong></td>
+                </tr>
+                <tr>
+                    <td>Data-sensitive industry (legal, healthcare, finance)</td>
+                    <td><strong>n8n (self-hosted)</strong></td>
+                </tr>
+                <tr>
+                    <td>High-volume operations (5,000+ tasks/month)</td>
+                    <td><strong>n8n (self-hosted)</strong></td>
+                </tr>
+                <tr>
+                    <td>AI-powered automation (document processing, smart routing)</td>
+                    <td><strong>n8n</strong></td>
+                </tr>
+                <tr>
+                    <td>Niche industry-specific apps needed</td>
+                    <td><strong>Zapier</strong> (check their library first)</td>
+                </tr>
+                <tr>
+                    <td>Enterprise with compliance requirements</td>
+                    <td><strong>n8n (self-hosted)</strong></td>
+                </tr>
+                <tr>
+                    <td>Not sure yet / need guidance</td>
+                    <td><strong>Book a free assessment</strong> &mdash; we'll help you decide</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Not Sure Which Platform Fits Your Business?</h2>
+        <p>We'll evaluate your specific needs, volume, and budget during a free 30-minute assessment &mdash; and recommend the platform that genuinely fits, even if it's one we don't primarily use.</p>
+        <p style="margin-top: 24px;">
+            <a href="https://www.eight38.com" class="cta-button">Book Your Free Assessment</a>
+            <a href="mailto:hello@eight38.com" class="cta-button secondary">Email Us</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            <div class="logo-small">EIGHT<span class="accent">38</span></div>
+            <div style="margin-top: 4px;">Cape Town, South Africa</div>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.eight38.com">www.eight38.com</a><br>
+            <a href="mailto:hello@eight38.com">hello@eight38.com</a><br>
+            <span style="color: #666;">&copy; 2026 Eight38. All rights reserved.</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

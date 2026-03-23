@@ -71,6 +71,11 @@
             <p>We've sent your download to the email address you provided. If you don't see it within a few minutes, check your spam or promotions folder.</p>
           </div>
 
+          <div id="download-link" style="margin-top: 1.5rem; padding: 1.5rem; background: var(--accent-subtle); border: 1px solid var(--border-accent); border-radius: var(--card-radius); text-align: center; display: none;">
+            <p style="margin-bottom: 1rem; font-weight: 600; color: var(--text-primary);">Can't wait? Download it directly:</p>
+            <a id="direct-download" href="#" class="btn btn--primary" download>Download Now</a>
+          </div>
+
           <div style="margin-top: 3rem;">
             <h2>What to Do Next</h2>
             <div class="process">
@@ -184,27 +189,41 @@
 
       var resources = {
         'checklist': {
-          heading: 'Your Automation Readiness Checklist Is on Its Way!',
-          lead: 'Check your inbox — your free checklist will arrive in the next few minutes.',
-          message: 'We\'ve sent the Automation Readiness Checklist to the email address you provided. Set aside 10 minutes to work through the 15 questions and score your business. If you don\'t see the email within a few minutes, check your spam or promotions folder.'
+          heading: 'Your Automation Readiness Checklist Is Ready!',
+          lead: 'Download your free checklist below, or check your inbox — we\'ve sent a copy there too.',
+          message: 'Set aside 10 minutes to work through the 15 questions and score your business. The scoring guide will tell you exactly where automation can make the biggest impact.',
+          download: '/downloads/automation-readiness-checklist.html',
+          downloadLabel: 'Download Readiness Checklist'
         },
         'platform-guide': {
-          heading: 'Your Platform Comparison Guide Is on Its Way!',
-          lead: 'Check your inbox — your free comparison guide will arrive in the next few minutes.',
-          message: 'We\'ve sent the N8N vs Make.com vs Zapier comparison guide to the email address you provided. Use the decision matrix to score each platform against your specific requirements. If you don\'t see the email within a few minutes, check your spam or promotions folder.'
+          heading: 'Your Platform Comparison Guide Is Ready!',
+          lead: 'Download your free guide below, or check your inbox — we\'ve sent a copy there too.',
+          message: 'Use the decision matrix to score each platform against your specific requirements. The cost calculator will help you compare total ownership costs over 1 and 3 years.',
+          download: '/downloads/choosing-automation-platform.html',
+          downloadLabel: 'Download Comparison Guide'
         },
         'playbook': {
-          heading: 'Your Workflow Automation Playbook Is on Its Way!',
-          lead: 'Check your inbox — your free playbook will arrive in the next few minutes.',
-          message: 'We\'ve sent the Workflow Automation Playbook to the email address you provided. Start with the workflow audit template to map your current processes, then use the priority matrix to decide what to automate first. If you don\'t see the email within a few minutes, check your spam or promotions folder.'
+          heading: 'Your Workflow Automation Playbook Is Ready!',
+          lead: 'Download your free playbook below, or check your inbox — we\'ve sent a copy there too.',
+          message: 'Start with the workflow audit template to map your current processes, then use the priority matrix to decide what to automate first.',
+          download: '/downloads/workflow-automation-playbook.html',
+          downloadLabel: 'Download Playbook'
         }
       };
+
+      var downloadSection = document.getElementById('download-link');
+      var downloadBtn = document.getElementById('direct-download');
 
       if (resource && resources[resource]) {
         var data = resources[resource];
         heading.innerHTML = '<span class="accent-text">' + data.heading + '</span>';
         lead.textContent = data.lead;
         message.innerHTML = '<p>' + data.message + '</p>';
+        if (data.download) {
+          downloadBtn.href = data.download;
+          downloadBtn.textContent = data.downloadLabel;
+          downloadSection.style.display = 'block';
+        }
       }
     })();
   </script>

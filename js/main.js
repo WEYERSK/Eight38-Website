@@ -172,11 +172,15 @@ async function handleFormSubmit(e) {
   try {
     const action = form.dataset.action;
     const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     const response = await fetch(action, {
       method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
     });
 
     if (response.ok) {

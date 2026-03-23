@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Small Business Workflow Automation Playbook | Eight38</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1a1a1a;
+            background: #f0f0f0;
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            box-shadow: 0 1px 10px rgba(0,0,0,0.08), 0 4px 30px rgba(0,0,0,0.04);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        /* Cover */
+        .cover {
+            background: linear-gradient(135deg, #0c2d48 0%, #0a1f33 100%);
+            color: #ffffff;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.08);
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -20%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(14, 165, 233, 0.06);
+        }
+        .cover .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        .logo .accent { color: #0ea5e9; }
+        .cover h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .cover .subtitle {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+        .cover .tagline {
+            font-size: 14px;
+            opacity: 0.6;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content { padding: 50px 60px; }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0a0a0a;
+            margin: 45px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0ea5e9;
+        }
+        h2:first-child { margin-top: 0; }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0a0a0a;
+            margin: 30px 0 12px;
+        }
+
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #0a0a0a;
+            margin: 18px 0 8px;
+        }
+
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 10px 0 14px 24px; }
+        li { margin-bottom: 6px; }
+        strong { font-weight: 600; }
+
+        /* Chapter headers */
+        .chapter-header {
+            background: linear-gradient(135deg, #0c2d48, #0a1f33);
+            color: #ffffff;
+            padding: 20px 28px;
+            border-radius: 6px;
+            margin: 45px 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .chapter-number {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            color: #0ea5e9;
+            line-height: 1;
+            min-width: 50px;
+        }
+        .chapter-header h2 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .chapter-subtitle {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+        /* Worksheet */
+        .worksheet {
+            border: 2px solid #0ea5e9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+        .worksheet-header {
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .worksheet-body {
+            padding: 20px;
+        }
+        .worksheet-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 12px;
+            align-items: start;
+            padding: 10px 0;
+            border-bottom: 1px dashed #d1d5db;
+        }
+        .worksheet-row:last-child { border-bottom: none; }
+        .worksheet-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: #0a0a0a;
+        }
+        .worksheet-input {
+            border-bottom: 1px solid #d1d5db;
+            min-height: 24px;
+            color: #999;
+            font-style: italic;
+            font-size: 13px;
+        }
+
+        /* Scoring table */
+        .score-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .score-table th {
+            background: #0c2d48;
+            color: #ffffff;
+            padding: 10px 14px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .score-table th:first-child { text-align: left; }
+        .score-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        .score-table td:first-child { text-align: left; font-weight: 500; }
+        .score-table tr:nth-child(even) td { background: #f8fafb; }
+        .score-table .total-row td {
+            font-weight: 700;
+            background: #ecfdf5;
+            border-top: 2px solid #0ea5e9;
+        }
+
+        /* Cost tiers */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .tier-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        .tier-card.featured {
+            border-color: #0ea5e9;
+            background: #f8fcfe;
+        }
+        .tier-label {
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0ea5e9;
+            margin-bottom: 6px;
+        }
+        .tier-price {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #0a0a0a;
+            margin-bottom: 8px;
+        }
+        .tier-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 24px 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #0ea5e9;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .timeline-dot {
+            width: 50px;
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #0ea5e9;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 1;
+        }
+        .timeline-content {
+            background: #f8fafb;
+            border-radius: 6px;
+            padding: 16px 20px;
+            flex: 1;
+        }
+        .timeline-content h4 { margin-top: 0; }
+
+        /* ROI box */
+        .roi-box {
+            background: #f8fafb;
+            border-left: 4px solid #0ea5e9;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .roi-box h3 { margin-top: 0; color: #0ea5e9; }
+
+        /* Formula */
+        .formula-box {
+            background: #0c2d48;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 8px 0;
+        }
+        .formula .accent { color: #0ea5e9; }
+        .formula-label {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Checklist */
+        .checklist-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 8px 0;
+        }
+        .check-box {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border: 2px solid #0ea5e9;
+            border-radius: 4px;
+            margin-top: 3px;
+            font-size: 12px;
+            color: #0ea5e9;
+        }
+
+        /* Case study */
+        .case-study {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 24px 0;
+        }
+        .case-study-header {
+            background: linear-gradient(135deg, #0c2d48, #0a1f33);
+            color: #ffffff;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .case-study-header h4 {
+            margin: 0;
+            color: #ffffff;
+        }
+        .case-study-tag {
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .case-study-body {
+            padding: 20px 24px;
+        }
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .case-stat {
+            text-align: center;
+            background: #f8fafb;
+            border-radius: 6px;
+            padding: 12px;
+        }
+        .case-stat-value {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #0ea5e9;
+        }
+        .case-stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Decision framework */
+        .decision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .decision-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .decision-card h4 { margin-top: 0; }
+
+        .highlight-box {
+            background: #f8fafb;
+            border-left: 4px solid #0ea5e9;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box h3 { margin-top: 0; color: #0ea5e9; }
+
+        .divider { height: 1px; background: #e5e7eb; margin: 30px 0; }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0c2d48 0%, #0a1f33 100%);
+            color: #ffffff;
+            padding: 40px 60px;
+            text-align: center;
+        }
+        .cta-section h2 { color: #ffffff; border-bottom: none; margin-top: 0; }
+        .cta-section p { opacity: 0.9; }
+        .cta-button {
+            display: inline-block;
+            background: #0ea5e9;
+            color: #ffffff;
+            padding: 14px 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 10px 8px;
+        }
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            color: #999;
+            padding: 30px 60px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer .logo-small {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+        .footer .logo-small .accent { color: #0ea5e9; }
+        .footer-links { text-align: right; }
+        .footer-links a { color: #0ea5e9; text-decoration: none; }
+
+        /* Print */
+        @media print {
+            body { background: #ffffff; font-size: 12pt; }
+            .page { box-shadow: none; margin: 0; max-width: none; }
+            .cover { padding: 50px 40px; }
+            .content { padding: 30px 40px; }
+            .cta-section, .cta-button { display: none; }
+            .chapter-header { break-after: avoid; }
+            .case-study, .worksheet, .tier-grid { break-inside: avoid; }
+            .timeline-item { break-inside: avoid; }
+            .footer { background: #ffffff; color: #666; padding: 20px 40px; }
+            a { color: #1a1a1a; text-decoration: none; }
+        }
+
+        @media (max-width: 640px) {
+            .cover { padding: 50px 30px; }
+            .cover h1 { font-size: 24px; }
+            .content { padding: 30px 24px; }
+            .tier-grid { grid-template-columns: 1fr; }
+            .case-study-stats { grid-template-columns: 1fr; }
+            .decision-grid { grid-template-columns: 1fr; }
+            .worksheet-row { grid-template-columns: 1fr; }
+            .cta-section { padding: 30px 24px; }
+            .footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+            .footer-links { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+    <!-- Cover -->
+    <div class="cover">
+        <div class="logo">EIGHT<span class="accent">38</span></div>
+        <h1>The Small Business Workflow Automation Playbook</h1>
+        <p class="subtitle">A Step-by-Step Implementation Guide</p>
+        <p class="subtitle">A Free Guide from Eight38</p>
+        <p class="tagline">Cape Town's Business Automation Specialists</p>
+    </div>
+
+    <div class="content">
+        <h2>Introduction: From Overwhelmed to Automated</h2>
+
+        <p>Your team is working harder than ever, but somehow the backlog keeps growing. Invoices pile up. Customer follow-ups slip through the cracks. Reports that should take minutes consume entire mornings. You know there's a better way &mdash; but the gap between "we should automate" and actually doing it feels impossibly wide.</p>
+
+        <p>This playbook closes that gap.</p>
+
+        <p>It's a practical, step-by-step guide that walks you through the entire automation journey: from auditing your current workflows, to prioritising what to automate first, to budgeting realistically, to implementing on a timeline that works for a small business.</p>
+
+        <p>You don't need technical expertise to use this playbook. You don't need a large budget. You just need a willingness to look honestly at how your business operates today and a commitment to making it better.</p>
+
+        <p>Let's get started.</p>
+
+        <!-- Chapter 1 -->
+        <div class="chapter-header">
+            <span class="chapter-number">01</span>
+            <div>
+                <h2>Audit Your Current Workflows</h2>
+                <div class="chapter-subtitle">Before you automate anything, understand what you're working with</div>
+            </div>
+        </div>
+
+        <p>The biggest mistake businesses make with automation is jumping straight to solutions before understanding the problem. A thorough workflow audit reveals where your time is actually going &mdash; and the results often surprise people.</p>
+
+        <h3>How to Map Your Workflows</h3>
+
+        <ol>
+            <li><strong>List every repetitive process</strong> your team performs weekly or monthly. Don't filter yet &mdash; capture everything from "send Monday report" to "process new client paperwork."</li>
+            <li><strong>Track time for one week.</strong> Ask team members to log how long each process takes. Real data beats estimates every time.</li>
+            <li><strong>Document the steps.</strong> For your top 10 time-consuming processes, write out every single step. Include the systems used, the people involved, and where handoffs happen.</li>
+            <li><strong>Identify pain points.</strong> Where do errors occur? Where do things get stuck? Which steps require a specific person (creating a bottleneck)?</li>
+        </ol>
+
+        <h3>Workflow Audit Worksheet</h3>
+        <p>Complete one of these for each of your top 5&ndash;10 processes:</p>
+
+        <div class="worksheet">
+            <div class="worksheet-header">Workflow Audit Template</div>
+            <div class="worksheet-body">
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Process Name</div>
+                    <div class="worksheet-input">e.g. Weekly Sales Report Generation</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Owner / Responsible</div>
+                    <div class="worksheet-input">e.g. Operations Manager</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Steps Involved</div>
+                    <div class="worksheet-input">e.g. 1. Log into CRM 2. Export data 3. Open spreadsheet 4. Paste &amp; format 5. Generate PDF 6. Email to team</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Time Per Week</div>
+                    <div class="worksheet-input">e.g. 3 hours</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Frequency</div>
+                    <div class="worksheet-input">e.g. Weekly (every Monday)</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Error Frequency</div>
+                    <div class="worksheet-input">e.g. 1&ndash;2 errors per month requiring rework</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Systems Used</div>
+                    <div class="worksheet-input">e.g. HubSpot CRM, Google Sheets, Gmail</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">People Involved</div>
+                    <div class="worksheet-input">e.g. 2 (data pull + formatting/distribution)</div>
+                </div>
+                <div class="worksheet-row">
+                    <div class="worksheet-label">Bottlenecks</div>
+                    <div class="worksheet-input">e.g. Only Sarah knows how to format the report correctly</div>
+                </div>
+            </div>
+        </div>
+
+        <p><em>Print this page and complete one worksheet per process, or recreate it in a spreadsheet for easier tracking.</em></p>
+
+        <!-- Chapter 2 -->
+        <div class="chapter-header">
+            <span class="chapter-number">02</span>
+            <div>
+                <h2>Score and Prioritise</h2>
+                <div class="chapter-subtitle">Focus your resources on the highest-value opportunities first</div>
+            </div>
+        </div>
+
+        <p>Not all processes are equal candidates for automation. Some will deliver massive ROI with minimal effort; others are complex to automate and deliver modest returns. The priority matrix below helps you score each process objectively and rank them by impact.</p>
+
+        <h3>Priority Matrix Scoring</h3>
+        <p>Score each process from 1 (low) to 5 (high) across four criteria:</p>
+
+        <ul>
+            <li><strong>Time Impact (1&ndash;5):</strong> How many hours per week does this process consume? (1 = under 1 hour, 5 = 8+ hours)</li>
+            <li><strong>Error Cost (1&ndash;5):</strong> How expensive are mistakes in this process? (1 = minor inconvenience, 5 = significant financial loss or customer impact)</li>
+            <li><strong>Complexity to Automate (1&ndash;5):</strong> How straightforward is the automation? (1 = highly complex, 5 = simple and well-defined). <em>Note: Higher score = easier to automate.</em></li>
+            <li><strong>Business Impact (1&ndash;5):</strong> How much does this process affect revenue, customer experience, or growth? (1 = back-office only, 5 = directly revenue-impacting)</li>
+        </ul>
+
+        <h3>Composite Score Calculation</h3>
+
+        <div class="formula-box">
+            <div class="formula-label">Priority Formula</div>
+            <div class="formula"><span class="accent">Composite Score</span> = Time Impact + Error Cost + Ease of Automation + Business Impact</div>
+            <div class="formula-label">Maximum possible score: 20 | Automate highest scores first</div>
+        </div>
+
+        <h3>Worked Example: 5 Common Processes Scored</h3>
+
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Process</th>
+                    <th>Time Impact</th>
+                    <th>Error Cost</th>
+                    <th>Ease of Automation</th>
+                    <th>Business Impact</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Invoice Processing</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td><strong>17</strong></td>
+                </tr>
+                <tr>
+                    <td>Email Follow-ups</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td><strong>16</strong></td>
+                </tr>
+                <tr>
+                    <td>Report Generation</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td><strong>14</strong></td>
+                </tr>
+                <tr>
+                    <td>Customer Onboarding</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td><strong>14</strong></td>
+                </tr>
+                <tr>
+                    <td>Data Sync Between Systems</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><strong>14</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <h3>How to Read This</h3>
+            <p>Invoice Processing scores highest because it's time-consuming, error-prone, easy to automate, and directly affects cash flow. Email Follow-ups score second because of their outsized revenue impact &mdash; consistent follow-up can increase close rates by 30%+. Start with the highest-scoring process and work your way down.</p>
+        </div>
+
+        <!-- Chapter 3 -->
+        <div class="chapter-header">
+            <span class="chapter-number">03</span>
+            <div>
+                <h2>Budget and Plan</h2>
+                <div class="chapter-subtitle">Understand the real costs and calculate your expected return</div>
+            </div>
+        </div>
+
+        <h3>Typical Costs by Complexity</h3>
+
+        <div class="tier-grid">
+            <div class="tier-card">
+                <div class="tier-label">Simple</div>
+                <div class="tier-price">R15K &ndash; R50K</div>
+                <div class="tier-desc">
+                    Connecting 2 systems<br>
+                    Basic workflows<br>
+                    1&ndash;2 week delivery<br>
+                    <em>e.g. Form &rarr; CRM sync, automated email reminders</em>
+                </div>
+            </div>
+            <div class="tier-card featured">
+                <div class="tier-label">Medium</div>
+                <div class="tier-price">R75K &ndash; R200K</div>
+                <div class="tier-desc">
+                    Multiple systems<br>
+                    Approval workflows<br>
+                    Custom logic<br>
+                    4&ndash;8 week delivery<br>
+                    <em>e.g. Invoice processing, client onboarding</em>
+                </div>
+            </div>
+            <div class="tier-card">
+                <div class="tier-label">Comprehensive</div>
+                <div class="tier-price">R250K &ndash; R500K+</div>
+                <div class="tier-desc">
+                    Organisation-wide<br>
+                    Custom development<br>
+                    Multiple departments<br>
+                    3&ndash;6 month delivery<br>
+                    <em>e.g. End-to-end operations automation</em>
+                </div>
+            </div>
+        </div>
+
+        <h3>ROI Calculation Framework</h3>
+
+        <div class="formula-box">
+            <div class="formula-label">Annual Value Formula</div>
+            <div class="formula"><span class="accent">Annual Value</span> = Time Saved Per Week &times; Hourly Cost &times; 50 Weeks</div>
+            <div style="height: 16px;"></div>
+            <div class="formula-label">Payback Period Formula</div>
+            <div class="formula"><span class="accent">Payback Period</span> = Implementation Cost &divide; Annual Value</div>
+        </div>
+
+        <h3>Worked Example: Invoice Processing Automation</h3>
+
+        <div class="roi-box">
+            <h3>ROI Calculation</h3>
+            <table class="score-table" style="margin-top: 12px;">
+                <tbody>
+                    <tr>
+                        <td style="text-align: left;"><strong>Time saved per week</strong></td>
+                        <td>5 hours</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Hourly cost (inc. overheads)</strong></td>
+                        <td>R500/hour</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Annual value</strong></td>
+                        <td>5 &times; R500 &times; 50 = <strong>R125,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Implementation cost</strong></td>
+                        <td>R30,000</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Payback period</strong></td>
+                        <td>R30,000 &divide; R125,000 = <strong>2.9 months</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Year 1 net benefit</strong></td>
+                        <td>R125,000 &minus; R30,000 = <strong>R95,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;"><strong>Year 2 net benefit</strong></td>
+                        <td><strong>R125,000</strong> (pure savings)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 14px; font-size: 14px; color: #666;"><em>Target payback periods under 6 months for quick wins. Most well-chosen automations pay for themselves in 2&ndash;4 months.</em></p>
+        </div>
+
+        <!-- Chapter 4 -->
+        <div class="chapter-header">
+            <span class="chapter-number">04</span>
+            <div>
+                <h2>Implementation Timeline</h2>
+                <div class="chapter-subtitle">What to expect during a typical 4-week automation project</div>
+            </div>
+        </div>
+
+        <p>Here's what a standard medium-complexity automation project looks like from start to finish. This timeline assumes a single workflow &mdash; more complex, multi-workflow projects will take longer.</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">W1</div>
+                <div class="timeline-content">
+                    <h4>Week 1: Discovery and Mapping</h4>
+                    <ul>
+                        <li>Kick-off meeting to review your workflow audit and priorities</li>
+                        <li>Detailed process mapping: every step, every decision point, every system</li>
+                        <li>Identify integration requirements and confirm API availability</li>
+                        <li>Define success metrics (time saved, error reduction, speed improvement)</li>
+                        <li>Agree on scope, timeline, and deliverables</li>
+                    </ul>
+                    <p><strong>Your involvement:</strong> 2&ndash;3 hours for meetings and process walkthroughs</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">W2</div>
+                <div class="timeline-content">
+                    <h4>Week 2: Design and Approval</h4>
+                    <ul>
+                        <li>Workflow design document: visual diagram showing the complete automation</li>
+                        <li>Integration architecture: how systems will connect and data will flow</li>
+                        <li>Error handling strategy: what happens when things go wrong</li>
+                        <li>Review session with your team to confirm the design</li>
+                        <li>Sign-off before building begins</li>
+                    </ul>
+                    <p><strong>Your involvement:</strong> 1&ndash;2 hours for review and approval</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">W3</div>
+                <div class="timeline-content">
+                    <h4>Week 3: Build and Initial Testing</h4>
+                    <ul>
+                        <li>Build the automation workflow in the chosen platform</li>
+                        <li>Configure integrations with your existing systems</li>
+                        <li>Unit testing: verify each step works correctly in isolation</li>
+                        <li>End-to-end testing: run complete workflows with test data</li>
+                        <li>Fix issues and refine based on test results</li>
+                    </ul>
+                    <p><strong>Your involvement:</strong> 30 minutes for test access and feedback</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">W4</div>
+                <div class="timeline-content">
+                    <h4>Week 4: Go-Live, Training, and Handover</h4>
+                    <ul>
+                        <li>Final user acceptance testing with real data</li>
+                        <li>Go-live: switch from manual process to automated workflow</li>
+                        <li>Team training session (typically 1 hour)</li>
+                        <li>Documentation handover: how it works, what to monitor, who to contact</li>
+                        <li>Post-launch monitoring to catch any teething issues</li>
+                    </ul>
+                    <p><strong>Your involvement:</strong> 2 hours for testing and training</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background: #22c55e;">Post</div>
+                <div class="timeline-content">
+                    <h4>Post-Launch: Monitor and Optimise</h4>
+                    <ul>
+                        <li>Week 1&ndash;2 post-launch: daily monitoring for issues</li>
+                        <li>Week 3&ndash;4: fine-tuning based on real-world performance</li>
+                        <li>Month 2: review metrics against targets, optimise where needed</li>
+                        <li>Ongoing: periodic reviews as your business processes evolve</li>
+                    </ul>
+                    <p><strong>Your involvement:</strong> Minimal &mdash; just flag any issues you notice</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Total Time Investment</h3>
+            <p>Your team typically spends <strong>6&ndash;8 hours total</strong> across a 4-week project. The rest is handled by the implementation team. This is designed to minimise disruption to your business while delivering maximum value.</p>
+        </div>
+
+        <!-- Chapter 5 -->
+        <div class="chapter-header">
+            <span class="chapter-number">05</span>
+            <div>
+                <h2>Evaluate Your Options</h2>
+                <div class="chapter-subtitle">Make an informed decision about how to proceed</div>
+            </div>
+        </div>
+
+        <h3>10 Questions to Ask Any Automation Vendor</h3>
+
+        <div style="margin: 16px 0;">
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>1. What platforms do you work with?</strong> Ensure they're not locked into one tool and can recommend the best fit for your needs.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>2. Can you share examples of similar projects?</strong> Look for experience in your industry or with your specific systems.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>3. What does ongoing support include?</strong> Clarify whether maintenance, monitoring, and updates are included or extra.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>4. How do you handle data privacy and security?</strong> Especially important if you handle customer data, financial records, or health information.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>5. What happens if something breaks?</strong> Understand response times, escalation procedures, and error handling approaches.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>6. Do we own the automation workflows?</strong> Ensure you're not locked in. Can you take the workflows if you part ways?</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>7. What's the realistic timeline?</strong> Be wary of promises that sound too fast. Good automation takes proper planning and testing.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>8. How do you measure success?</strong> Look for vendors who define clear metrics before building, not vague promises afterwards.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>9. What are the ongoing costs beyond implementation?</strong> Factor in platform subscriptions, hosting, and maintenance fees.</span>
+            </div>
+            <div class="checklist-item">
+                <span class="check-box">&#9744;</span>
+                <span><strong>10. Can we start small and scale?</strong> The best vendors encourage starting with one process and expanding based on results.</span>
+            </div>
+        </div>
+
+        <h3>DIY vs Expert: Decision Framework</h3>
+
+        <div class="decision-grid">
+            <div class="decision-card">
+                <h4>Build It Yourself If...</h4>
+                <ul>
+                    <li>The workflow is simple (2&ndash;3 steps, single trigger)</li>
+                    <li>Someone on your team is comfortable with no-code tools</li>
+                    <li>It's not mission-critical (errors won't cause financial loss)</li>
+                    <li>You have time to learn and experiment</li>
+                    <li>Budget is very limited (under R15,000)</li>
+                    <li>You want to build internal automation capability</li>
+                </ul>
+            </div>
+            <div class="decision-card">
+                <h4>Bring In an Expert If...</h4>
+                <ul>
+                    <li>Multiple systems need to integrate</li>
+                    <li>The process is mission-critical (invoicing, customer-facing)</li>
+                    <li>Data accuracy and reliability are essential</li>
+                    <li>You want it done quickly and correctly the first time</li>
+                    <li>Custom logic or AI capabilities are needed</li>
+                    <li>You'd rather focus your team on core business activities</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>Many businesses take a hybrid approach: DIY for simple automations (email follow-ups, basic notifications) and expert help for complex, high-stakes integrations (invoice processing, multi-system data sync, customer onboarding).</p>
+
+        <div class="divider"></div>
+
+        <!-- Case Studies -->
+        <h2>Real-World Results: 3 Mini Case Studies</h2>
+
+        <div class="case-study">
+            <div class="case-study-header">
+                <h4>Case Study 1: Marketing Agency</h4>
+                <span class="case-study-tag">Automated Reporting</span>
+            </div>
+            <div class="case-study-body">
+                <p><strong>The Situation:</strong> A 15-person Cape Town marketing agency managed reporting for 30+ clients. Every Monday, two team members spent the entire morning pulling data from Google Analytics, Facebook Ads, Google Ads, and HubSpot, then formatting individual reports for each client. Total time: 10+ hours per week across the team.</p>
+
+                <p><strong>The Solution:</strong> Automated report generation that pulls data from all platforms overnight every Sunday, populates client-specific templates, generates branded PDFs, and emails them to each client before 8am on Monday.</p>
+
+                <p><strong>The Result:</strong></p>
+                <div class="case-study-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-value">10 hrs/wk</div>
+                        <div class="case-stat-label">Time Saved</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">R260K/yr</div>
+                        <div class="case-stat-label">Cost Savings</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">2 months</div>
+                        <div class="case-stat-label">Payback Period</div>
+                    </div>
+                </div>
+                <p style="margin-top: 14px; font-size: 14px; color: #666;">The two team members previously stuck on Monday report duty now spend that time on strategy and client development &mdash; work that directly generates revenue.</p>
+            </div>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-header">
+                <h4>Case Study 2: Legal Firm</h4>
+                <span class="case-study-tag">Client Onboarding</span>
+            </div>
+            <div class="case-study-body">
+                <p><strong>The Situation:</strong> A boutique legal practice onboarded 8&ndash;12 new clients per month. Each onboarding required: conflict check, engagement letter generation, document collection (ID, proof of address, relevant case documents), matter file creation, and introduction to the assigned attorney. The process took an average of 2 days per client, with frequent delays when documents were missing or incomplete.</p>
+
+                <p><strong>The Solution:</strong> An automated onboarding workflow triggered when a new matter is opened in their practice management system. The system generates the engagement letter from templates, sends a secure document collection form to the client, tracks submissions with automated reminders, creates the matter file when all documents are received, and notifies the assigned attorney with a complete brief.</p>
+
+                <p><strong>The Result:</strong></p>
+                <div class="case-study-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-value">2 days &rarr; 2 hrs</div>
+                        <div class="case-stat-label">Onboarding Time</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">100%</div>
+                        <div class="case-stat-label">Document Completeness</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">3.5 months</div>
+                        <div class="case-stat-label">Payback Period</div>
+                    </div>
+                </div>
+                <p style="margin-top: 14px; font-size: 14px; color: #666;">Every client now receives the same professional onboarding experience, regardless of which partner handles their matter. No more missing documents, no more delays, no more inconsistency.</p>
+            </div>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-header">
+                <h4>Case Study 3: E-commerce Business</h4>
+                <span class="case-study-tag">Order Processing &amp; Inventory</span>
+            </div>
+            <div class="case-study-body">
+                <p><strong>The Situation:</strong> An online retailer selling across their Shopify store, Takealot, and two other marketplace platforms processed 200+ orders per week. Staff manually checked inventory across platforms, updated stock levels after each sale, and reconciled orders with their accounting system daily. During peak sales periods, errors spiked: overselling (items sold on one platform after selling out on another), incorrect shipment details, and accounting mismatches.</p>
+
+                <p><strong>The Solution:</strong> A real-time inventory sync across all four sales channels, with automated order processing that creates fulfilment tasks in their warehouse system and syncs completed orders to their accounting platform. Automated alerts trigger when stock drops below reorder thresholds.</p>
+
+                <p><strong>The Result:</strong></p>
+                <div class="case-study-stats">
+                    <div class="case-stat">
+                        <div class="case-stat-value">0 oversells</div>
+                        <div class="case-stat-label">Stock Errors Eliminated</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">8 hrs/wk</div>
+                        <div class="case-stat-label">Time Saved</div>
+                    </div>
+                    <div class="case-stat">
+                        <div class="case-stat-value">R180K/yr</div>
+                        <div class="case-stat-label">Savings + Recovered Revenue</div>
+                    </div>
+                </div>
+                <p style="margin-top: 14px; font-size: 14px; color: #666;">The business scaled from 200 to 400+ orders per week during the following peak season without adding staff &mdash; the automation handled the volume increase seamlessly.</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Final Section -->
+        <h2>Your Next Move</h2>
+
+        <p>You now have everything you need to start your automation journey:</p>
+
+        <ol>
+            <li><strong>Audit</strong> your workflows using the worksheet in Chapter 1</li>
+            <li><strong>Score and prioritise</strong> using the matrix in Chapter 2</li>
+            <li><strong>Calculate ROI</strong> using the framework in Chapter 3</li>
+            <li><strong>Plan your timeline</strong> using the template in Chapter 4</li>
+            <li><strong>Evaluate your options</strong> using the checklist in Chapter 5</li>
+        </ol>
+
+        <p>Start with one process. Prove the value. Then expand.</p>
+
+        <p>The businesses that thrive over the next decade won't be those with the largest teams &mdash; they'll be those that leverage automation to work smarter, respond faster, and scale without breaking.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Ready to Put This Playbook Into Action?</h2>
+        <p>Book a free 30-minute automation assessment. We'll review your workflow audit, help you prioritise your top opportunities, and provide ballpark ROI estimates &mdash; no pressure, no obligation.</p>
+        <p style="margin-top: 24px;">
+            <a href="https://www.eight38.com" class="cta-button">Book Your Free Assessment</a>
+            <a href="mailto:hello@eight38.com" class="cta-button secondary">Email Us</a>
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div>
+            <div class="logo-small">EIGHT<span class="accent">38</span></div>
+            <div style="margin-top: 4px;">Cape Town, South Africa</div>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.eight38.com">www.eight38.com</a><br>
+            <a href="mailto:hello@eight38.com">hello@eight38.com</a><br>
+            <span style="color: #666;">&copy; 2026 Eight38. All rights reserved.</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
