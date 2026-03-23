@@ -409,28 +409,32 @@ p:last-child {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+    /* Keep toggle always visible and clickable, even when nav overlay is hidden */
+    position: fixed;
+    right: clamp(1.25rem, 4vw, 2rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
   }
 
-  .nav {
+  .nav-list {
     position: fixed;
     inset: 0;
     background: var(--bg-primary);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     opacity: 0;
     visibility: hidden;
+    z-index: 1000;
     transition: opacity var(--transition-base), visibility var(--transition-base);
   }
 
-  .nav.open {
+  .nav.open .nav-list {
     opacity: 1;
     visibility: visible;
-  }
-
-  .nav-list {
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   .nav-list a {
